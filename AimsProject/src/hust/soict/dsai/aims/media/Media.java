@@ -56,6 +56,7 @@ public abstract class Media extends java.lang.Object {
 
     @Override
     public boolean equals(Object o) {
-        
+        Media media = (Media) o;
+        return this.getTitle().equals(media.getTitle());
     }
 }
