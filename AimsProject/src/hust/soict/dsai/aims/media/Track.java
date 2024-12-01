@@ -27,7 +27,7 @@ public class Track implements Playable {
     @Override
     public boolean equals(Object o) {
         Track track = (Track) o;
-        return (this.getTitle() == null ? track.getTitle() == null : this.getTitle().equals(track.getTitle()) & 
-                this.getLength() == null ? track.getLength() == null : this.getLength() == track.getLength());
+        return (this.getTitle().equals(track.getTitle()) && 
+                this.getLength() == track.getLength());
     }
 }
