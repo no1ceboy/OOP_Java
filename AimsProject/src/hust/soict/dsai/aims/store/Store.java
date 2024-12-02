@@ -28,4 +28,42 @@ public class Store {
         System.out.println("No media found!");
         }
     }
+    
+    public void print() {
+        for (Media media: itemsInStore) {
+            System.out.println(media.toString());
+        }
+    }
+
+    public Media searchById(int id) {
+		boolean found = false;
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			if (itemsInStore.get(i).getId() == id) {
+				System.out.println("Media found: " + itemsInStore.get(i).toString());
+				found = true;
+				return itemsInStore.get(i);
+			}
+		}
+
+		if (!found) {
+			System.out.println("No Media found with ID: " + id);
+		}
+        return null;
+	}
+
+	public Media searchByTitle(String title) {
+		boolean found = false;
+		for (int i = 0; i < itemsInStore.size(); i++) {
+			if (itemsInStore.get(i).getTitle().equals(title)) {
+				System.out.println("Media found: " + itemsInStore.get(i).toString());
+				found = true;
+				return itemsInStore.get(i);
+			}
+		}
+
+		if (!found) {
+			System.out.println("No Media found with title: " + title);
+		}
+        return null;
+    }
 }

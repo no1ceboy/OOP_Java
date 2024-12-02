@@ -20,9 +20,14 @@ public class Disc extends Media {
         this.length =  length;
     }
 
-    public Disc() {
-        super();
-        this.director = "None";
-        this.length = 0;
+    public Disc(String title, String category, String director, int length, float cost) {
+        super(title, category, cost);
+        this.director = director;
+        this.length = length;
+    }
+
+    @Override
+    public String toString() {
+        return "Disc" + "-" + this.getTitle() + "-" + this.getCategory() + "-" + this.getDirector() + "-" + String.valueOf(this.getLength()) + ": " + String.valueOf(this.getCost()) + "$";
     }
 }

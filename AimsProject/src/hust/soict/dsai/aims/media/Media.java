@@ -1,17 +1,31 @@
 package hust.soict.dsai.aims.media;
 
-public abstract class Media extends java.lang.Object {
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+public abstract class Media {
+
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
+    
     private int id;
     private String title;
     private String category;
     private float cost;
 
+    private static int mediaId = 0;
+
     public Media() {
-        // TODO Auto-generated constructor stub
-        this.id = 0;
-        this.title = "None";
-        this.category = "None";
-        this.cost = 0.0f;
+
+	}
+
+    public Media(String title, String category, float cost) {
+		this.title = title;
+		this.category = category;
+		this.cost = cost;
+        this.id = mediaId;
+        mediaId += 1;
 	}
 
     public int getId() {
@@ -56,7 +70,25 @@ public abstract class Media extends java.lang.Object {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
         Media media = (Media) o;
         return this.getTitle().equals(media.getTitle());
     }
+
+    // Sorting methods
+    public static void sortByTitleCost(List<Media> collection) {
+        Collections.sort(collection, COMPARE_BY_TITLE_COST);
+    }
+
+    public static void sortByCostTitle(List<Media> collection) {
+        Collections.sort(collection, COMPARE_BY_COST_TITLE);
+    }
+    
+    @Override
+    public abstract String toString();
 }
