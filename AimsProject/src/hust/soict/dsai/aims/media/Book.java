@@ -7,8 +7,16 @@ public class Book extends Media {
 
     private List<String> authors = new ArrayList<>();
 
+    public List<String> getAuthors() {
+		return authors;
+	}
+
     public Book() {
         // TODO Auto-generated constructor stub
+    }
+
+    public Book(String title, String category, float cost) {
+        super(title,category,cost);
     }
 
     public void addAuthor(String authorName) {
@@ -27,6 +35,11 @@ public class Book extends Media {
         else {
 			System.out.println("No author found!");
 		}
+    }
+
+    @Override
+    public String toString() {
+        return "Book" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getAuthors() + ": " + String.valueOf(this.getCost()) + "$";
     }
 }
 

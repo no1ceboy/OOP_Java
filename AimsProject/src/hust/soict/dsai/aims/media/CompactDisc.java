@@ -11,10 +11,9 @@ public class CompactDisc extends Disc implements Playable {
         return artist;
     }
 
-    public CompactDisc(String artist, List<Track> tracks) {
-        super();
+    public CompactDisc(String title, String category, int length, float cost, String artist) {
+        super(title, category, "None", length, cost);
         this.artist = artist;
-        this.tracks = tracks;
     }
 
     public void addTrack(Track track) {
@@ -22,7 +21,7 @@ public class CompactDisc extends Disc implements Playable {
 			tracks.add(track);
 		}
         else {
-			System.out.println("track already exist!");
+			System.out.println("Track already exist!");
 		}
     }
 
@@ -42,6 +41,11 @@ public class CompactDisc extends Disc implements Playable {
             totalLength += tracks.get(i).getLength();
         }
         return totalLength;
+    }
+
+    @Override
+    public String toString() {
+        return "CD" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getArtist() + " - " + String.valueOf(this.getLength()) + ": " + String.valueOf(this.getCost()) + "$";
     }
 
     @Override

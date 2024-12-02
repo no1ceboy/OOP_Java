@@ -2,43 +2,20 @@ package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
 
-	private  static int nbDigitalVideoDiscs = 0;
-
     public DigitalVideoDisc(String title) {
-        super();
-        this.setTitle(title);
-        this.setId(nbDigitalVideoDiscs);
-        nbDigitalVideoDiscs += 1;
+        super(title, "None", "None", 0, 0.0f);
     }
 
     public DigitalVideoDisc(String title, String category, float cost) {
-		super();
-		this.setTitle(title);
-		this.setCategory(category);
-		this.setCost(cost);
-        this.setId(nbDigitalVideoDiscs);
-        nbDigitalVideoDiscs += 1;
+		super(title, category,"None",0, cost);
 	}
 
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		super();
-		this.setTitle(title);
-		this.setCategory(category);
-		this.setDirector(director);
-		this.setCost(cost);
-        this.setId(nbDigitalVideoDiscs);
-        nbDigitalVideoDiscs += 1;
+		super(title, category, director,0, cost);
     }
 
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-		this.setTitle(title);
-		this.setCategory(category);
-		this.setDirector(director);
-		this.setLength(length);
-		this.setCost(cost);;
-        this.setId(nbDigitalVideoDiscs);
-        nbDigitalVideoDiscs += 1;
+		super(title, category, director, length, cost);
 	}
 
     @Override
