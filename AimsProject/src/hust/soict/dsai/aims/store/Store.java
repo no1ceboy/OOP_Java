@@ -1,13 +1,14 @@
 package hust.soict.dsai.aims.store;
 
 import hust.soict.dsai.aims.media.Media;
-import java.util.ArrayList;
-import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.util.Iterator;
 
 public class Store {
 
     private final int storeCapacity = 1000;
-    private List<Media> itemsInStore = new ArrayList<>();
+    private ObservableList<Media> itemsInStore = FXCollections.observableArrayList();
 
     public void addMedia(Media media) {
 
@@ -65,5 +66,9 @@ public class Store {
 			System.out.println("No Media found with title: " + title);
 		}
         return null;
+    }
+
+    public ObservableList<Media> getItemsInStore() {
+        return itemsInStore;
     }
 }
