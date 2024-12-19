@@ -1,22 +1,28 @@
 package hust.soict.dsai.aims.cart;
+
 import hust.soict.dsai.aims.media.Media;
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javax.naming.LimitExceededException;
 import java.util.Collections;
-import java.util.List;
 
 public class Cart {
 
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private List<Media> itemsOrdered = new ArrayList<>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
-    public void addMedia(Media media) {
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
+    public void addMedia(Media media) throws LimitExceededException {
 
         if (itemsOrdered.size() < MAX_NUMBERS_ORDERED) {
             itemsOrdered.add(media);
             System.out.println("Media added");
         }
         else {
-            System.out.println("Maximum amount reached!");
+            throw new LimitExceededException("Maximum amount reached!");
         }
     }
 
@@ -125,6 +131,6 @@ public class Cart {
 	}
 
     public void clear() {
-		this.itemsOrdered = new ArrayList<Media>();
+		itemsOrdered.removeAll(itemsOrdered);
 	}
 }
