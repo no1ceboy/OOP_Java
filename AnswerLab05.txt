@@ -1,0 +1,2 @@
+- The Aims class must be updated to handle any exceptions generated when the play() methods are called. What happens when you don’t update for them to catch?
+If we don't update them to catch, then when try to use Aims, it will throw error "The method play() from the type Playable refers to the missing type PlayerException".

@@ -80,7 +80,6 @@ public abstract class Media {
         return this.getTitle().equals(media.getTitle());
     }
 
-    // Sorting methods
     public static void sortByTitleCost(List<Media> collection) {
         Collections.sort(collection, COMPARE_BY_TITLE_COST);
     }
